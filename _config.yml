@@ -21,12 +21,7 @@ github_username:  lifecoder1988
 
 header_pages:
  - all.html
- - core.html
- - networking.html
- - interface.html
- - arcs.html
- - meta.html
- - informational.html
+
 
 # Build settings
 highlighter: rouge

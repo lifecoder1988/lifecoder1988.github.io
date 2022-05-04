@@ -4,29 +4,29 @@ layout: default
 
 {% if page.status == "Draft" %}
   <div class="draft">
-    ⚠️ This EIP is not recommended for general use or implementation as it is likely to change.
+    ⚠️ This ARC is not recommended for general use or implementation as it is likely to change.
   </div>
 {% elsif page.status == "Review" %}
   <div class="review">
-    📖 This EIP is in the review stage. It is subject to changes and feedback is appreciated.
+    📖 This ARC is in the review stage. It is subject to changes and feedback is appreciated.
   </div>
 {% elsif page.status == "Last Call" %}
   <div class="lastcall">
-    📢 This EIP is in the last call for review stage. The authors wish to finalize the EIP and appreciate feedback.
+    📢 This ARC is in the last call for review stage. The authors wish to finalize the ARC and appreciate feedback.
   </div>
 {% elsif page.status == "Stagnant" %}
   <div class="stagnant">
-    🚧 This EIP had no activity for at least 6 months.
+    🚧 This ARC had no activity for at least 6 months.
   </div>
 {% elsif page.status == "Withdrawn" %}
   <div class="withdrawn">
-    🛑 This EIP has been withdrawn.
+    🛑 This ARC has been withdrawn.
   </div>
 {% endif %}
 
 <div class="home">
   <h1 class="page-heading">
-    EIP-{{ page.eip | xml_escape }}: {{ page.title | xml_escape }}
+    ARC-{{ page.arc | xml_escape }}: {{ page.title | xml_escape }}
     <a href="{{site.github.repository_url}}/blob/master/{{page.path}}"><svg role="img" aria-label="Source" xmlns="https://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><title>Source</title><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg></a>
   </h1>
   <h3>{{ page.description | xml_escape }}</h3>
@@ -49,7 +49,7 @@ layout: default
     <tr><th>Updated</th><td>{{ page.updated | xml_escape }}</td></tr>
     {% endif %}
     {% if page.requires != undefined %}
-      <tr><th>Requires</th><td>{% include eipnums.html eips=page.requires %}</td></tr>
+      <tr><th>Requires</th><td>{% include arcnums.html arcs=page.requires %}</td></tr>
     {% endif %}
     {% if page["withdrawal-reason"] != undefined %}
       <tr><th>Withdrawal reason</th><td>{{ page["withdrawal-reason"] | xml_escape }}</td></tr>
@@ -69,7 +69,7 @@ layout: default
   IEEE specification for reference formatting:
   https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf
   {% endcomment %}
-  <p>{% include authorlist.html authors=page.author %}, "EIP-{{ page.eip | xml_escape }}: {{ page.title | xml_escape }}{% if page.status == "Draft" or page.status == "Last Call" %} [DRAFT]{% endif %}," <em>Ethereum Improvement Proposals</em>, no. {{ page.eip | xml_escape }}, {{ page.created | date: "%B %Y" }}. [Online serial]. Available: https://eips.ethereum.org/EIPS/eip-{{ page.eip | xml_escape }}.</p>
+  <p>{% include authorlist.html authors=page.author %}, "ARC-{{ page.arc | xml_escape }}: {{ page.title | xml_escape }}{% if page.status == "Draft" or page.status == "Last Call" %} [DRAFT]{% endif %}," <em>Ethereum Improvement Proposals</em>, no. {{ page.arc | xml_escape }}, {{ page.created | date: "%B %Y" }}. [Online serial]. Available: https://lifecoder1988.github.io/ARCS/arc-{{ page.arc | xml_escape }}.</p>
 </div>
 {% comment %}
 Article schema specification:
@@ -79,9 +79,9 @@ https://schema.org/TechArticle
   {
     "@context": "http://schema.org",
     "@type": "TechArticle",
-    "headline": "EIP-{{ page.eip | xml_escape }}: {{ page.title | xml_escape }}{% if page.status == "Draft" or page.status == "Last Call" %} [DRAFT]{% endif %}",
+    "headline": "ARC-{{ page.arc | xml_escape }}: {{ page.title | xml_escape }}{% if page.status == "Draft" or page.status == "Last Call" %} [DRAFT]{% endif %}",
     "author": "{{ page.author }}",
-    "name": "EIP-{{ page.eip | xml_escape }}: {{ page.title | xml_escape }}{% if page.status == "Draft" or page.status == "Last Call" %} [DRAFT]{% endif %}",
+    "name": "ARC-{{ page.arc | xml_escape }}: {{ page.title | xml_escape }}{% if page.status == "Draft" or page.status == "Last Call" %} [DRAFT]{% endif %}",
     "dateCreated": "{{ page.created | date: "%Y-%m-%d" }}",
     "datePublished": "{{ page.created | date: "%Y-%m-%d" }}",
 {% if page["discussions-to"] != undefined %}

@@ -1,4 +1,4 @@
 {% assign arcs=include.arcs|split:"," %}
 {% for arcnum in arcs %}
-  <a href="{{eipnum|strip|prepend:"arc-" }}">{{arcnum|strip}}</a>{% if forloop.last == false %}, {% endif %}
+  <a href="{{arcnum|strip|prepend:"arc-" }}">{{arcnum|strip}}</a>{% if forloop.last == false %}, {% endif %}
 {% endfor %}
